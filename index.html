@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .text-container {
+            padding: 0.2rem;
+            max-width: 576px;
+        }
+
+        .quote {
+            font-size: 1.1rem;
+        }
+
+        .write-by {
+            text-align: right;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <quote class="quote" id="quote"></quote>
+        <p class="write-by">- <span class="author" id="author"></span></p>
+    </div>
+
+    <script type="module">
+        import * as data from './quoteData.js';
+
+        const initQuote = () => {
+            const quote = document.getElementById('quote');
+            const author = document.getElementById('author');
+            const list = data.default;
+            const randomObj = list[Math.floor(Math.random() * list.length)];
+
+            console.log(randomObj);
+
+            quote.innerHTML = randomObj.content;
+            author.innerHTML = randomObj.author;
+        }
+
+        initQuote();
+    </script>
+</body>
+</html>
